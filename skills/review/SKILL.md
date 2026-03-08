@@ -1,5 +1,5 @@
 ---
-name: review
+name: review-by-opp:review
 description: Run Codex as an independent reviewer against the current diff or changed files. Parses findings into the ledger. Use after making code changes.
 user-invocable: true
 allowed-tools: Read, Grep, Glob, Bash

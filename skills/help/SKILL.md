@@ -1,5 +1,5 @@
 ---
-name: help
+name: review-by-opp:help
 description: Learn about review-by-opp - what it does, how to use it, and available commands
 ---
 
@@ -30,13 +30,13 @@ This creates an adversarial review loop where two different AI models hold each 
 
 | Command | What it does |
 |---|---|
-| `/start` | Initialize a new review session. Checks git, Codex, and config. |
-| `/review` | Run Codex audit on your code. Parses findings into the ledger. |
-| `/fix` | Address findings one by one. Each fix requires an explicit resolution. |
-| `/status` | Show session status - open findings, rounds, agent config. |
-| `/resume` | Resume an existing session from `reviews/current.json`. |
-| `/finalize` | Run exit gate. Blocks if findings remain. Emits final verdict. |
-| `/help` | This help page. |
+| `/review-by-opp:start` | Initialize a new review session. Checks git, Codex, and config. |
+| `/review-by-opp:review` | Run Codex audit on your code. Parses findings into the ledger. |
+| `/review-by-opp:fix` | Address findings one by one. Each fix requires an explicit resolution. |
+| `/review-by-opp:status` | Show session status - open findings, rounds, agent config. |
+| `/review-by-opp:resume` | Resume an existing session from `reviews/current.json`. |
+| `/review-by-opp:finalize` | Run exit gate. Blocks if findings remain. Emits final verdict. |
+| `/review-by-opp:help` | This help page. |
 
 ## Typical Workflow
 

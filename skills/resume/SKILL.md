@@ -1,5 +1,5 @@
 ---
-name: resume
+name: review-by-opp:resume
 description: Resume an existing review-by-opp session. Use when returning to a previous review session.
 user-invocable: true
 allowed-tools: Read, Glob, Bash
