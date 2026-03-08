@@ -14,7 +14,7 @@
 - Configurable review settings via `.review-by-opp.json`
 - Duplicate finding detection
 - Verification checks (test, lint, typecheck)
-- Full test suite (42 tests)
+- Full test suite (47 tests)
 - Documentation (architecture, user guide, configuration, troubleshooting, security)
 - Marketplace packaging for Git-hosted distribution
 - CI/CD workflows

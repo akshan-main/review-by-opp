@@ -1,7 +1,7 @@
 {
   "reviewLedger": {
     "maxRounds": 4,
-    "reviewScope": "diff",
+    "reviewScope": "full-repo",
     "blockingSeverities": ["critical", "high", "medium"],
     "rerunChecks": true,
     "allowedUnresolvedCategories": [],

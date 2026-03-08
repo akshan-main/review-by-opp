@@ -108,7 +108,7 @@ Create `.review-by-opp.json` in your project root:
 {
   "reviewLedger": {
     "maxRounds": 4,
-    "reviewScope": "diff",
+    "reviewScope": "full-repo",
     "blockingSeverities": ["critical", "high", "medium"],
     "rerunChecks": true,
     "allowedUnresolvedCategories": [],
@@ -137,7 +137,7 @@ Create `.review-by-opp.json` in your project root:
 | Field | Default | Description |
 |-------|---------|-------------|
 | `maxRounds` | `4` | Maximum review rounds before forced stop |
-| `reviewScope` | `"diff"` | What to review: `diff`, `changed-files`, `changed-files-plus-tests` |
+| `reviewScope` | `"full-repo"` | What to review: `full-repo`, `diff`, `changed-files`, `changed-files-plus-tests` |
 | `blockingSeverities` | `["critical","high","medium"]` | Severities that block finalization |
 | `codex.modelStrategy` | `"best_available"` | `best_available`, `fixed`, `inherit_if_possible` |
 | `codex.reasoningEffort` | `""` (inherit) | Optional Codex reasoning effort override for standard audits |
