@@ -2,7 +2,6 @@
 name: review-by-opp:status
 description: Show current review ledger status including round count, open findings, blocking items, agent configuration, and whether the session can be finalized.
 user-invocable: true
-allowed-tools: Read, Glob
 ---
 
 Show the current review-by-opp session status.

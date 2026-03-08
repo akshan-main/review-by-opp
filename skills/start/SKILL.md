@@ -2,7 +2,6 @@
 name: review-by-opp:start
 description: Start a guarded implementation + review session. Use when beginning work that should be reviewed by Codex before completion. Initializes the review ledger and configures the stop gate.
 user-invocable: true
-allowed-tools: Read, Grep, Glob, Bash, Write, Edit
 ---
 
 You are starting a review-by-opp session. This activates strict review tracking.

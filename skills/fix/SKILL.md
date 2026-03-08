@@ -2,7 +2,6 @@
 name: review-by-opp:fix
 description: Address Codex review findings from the ledger. Shows open findings and guides resolution. Each finding must get an explicit resolution state.
 user-invocable: true
-allowed-tools: Read, Grep, Glob, Bash, Write, Edit
 ---
 
 You are addressing Codex review findings. You are the builder - fix what needs fixing.

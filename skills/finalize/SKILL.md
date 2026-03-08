@@ -2,7 +2,6 @@
 name: review-by-opp:finalize
 description: Finalize the review session. Only succeeds if all blocking findings are resolved. Emits final verdict.
 user-invocable: true
-allowed-tools: Read, Glob, Bash
 ---
 
 Finalize the review-by-opp session. This is the exit gate.

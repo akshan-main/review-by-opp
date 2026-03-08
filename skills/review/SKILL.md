@@ -2,7 +2,6 @@
 name: review-by-opp:review
 description: Run Codex as an independent reviewer against the current diff or changed files. Parses findings into the ledger. Use after making code changes.
 user-invocable: true
-allowed-tools: Read, Grep, Glob, Bash
 ---
 
 You are running a Codex review round. Codex is the auditor - it reviews, you do not edit during this step.
@@ -24,15 +23,25 @@ You are running a Codex review round. Codex is the auditor - it reviews, you do 
 3. **Increment round:**
    - Update `current_round` in the ledger
 
-4. **Build the audit prompt:**
+4. **Write context file for Codex:**
+   - Write `reviews/context.md` so Codex has full project context despite being stateless. Include:
+     - **Project summary**: what the project does (read from README or package.json description)
+     - **Tech stack**: languages, frameworks, key dependencies
+     - **What changed this session**: summary of changes made since session started (from git log/diff)
+     - **Previous findings** (if round > 1): list all findings from prior rounds with their current status (open/fixed/etc), so Codex knows what was already flagged and can verify fixes
+     - **Review focus**: any user-specified focus areas from arguments
+   - Keep it concise — this is context, not a full dump. Aim for under 200 lines.
+
+5. **Build the audit prompt:**
    - Base prompt: instruct Codex to review the code for bugs, security issues, performance problems, and code quality
+   - **Always** instruct Codex to first read `reviews/context.md` for project context and previous findings
    - For `diff` scope: include the git diff output in the prompt
    - For `changed-files` scope: include the full file contents of changed files
    - For `full-repo` scope: instruct Codex to read and review all source files in the repository
    - If the user provided arguments (e.g. `/review-by-opp:review focus on auth and SQL injection`), append them as additional review focus areas
    - Always instruct Codex to output findings in the format: `FINDING: {"title":"...","severity":"...","category":"...","file":"...","line":...,"description":"...","suggested_fix":"..."}`
 
-5. **Run Codex review:**
+6. **Run Codex review:**
    - Execute Codex in auditor-only mode with a read-only sandbox:
      - Base form: `npx @openai/codex exec --sandbox read-only "<audit prompt>"`
      - If model override is configured, include `--model <model>`
@@ -40,28 +49,28 @@ You are running a Codex review round. Codex is the auditor - it reviews, you do 
    - Keep default behavior inherited when overrides are not configured.
    - Capture the full output
 
-6. **Parse findings:**
+7. **Parse findings:**
    - Extract lines starting with `FINDING:` and parse the JSON
    - For each finding, assign an ID like `f-{round}-{short-uuid}`
    - Set status to `open`
    - Deduplicate against existing findings (same file + title + category within 5 lines = duplicate)
 
-7. **Update ledger:**
+8. **Update ledger:**
    - Add new findings to `reviews/current.json`
    - Write round snapshot to `reviews/rounds/round-{N}.json`
    - Write summary to `reviews/summaries/summary-{N}.json`
 
-8. **Run verification checks (if configured):**
+9. **Run verification checks (if configured):**
    - If `rerunChecks` is true in config, run available checks (test, lint, typecheck)
    - Report results
 
-9. **Report results:**
+10. **Report results:**
    - Show number of new findings, total open, blocking open
    - List each new finding with severity, category, title, file, and line
    - Show the round verdict: needs_fixes, converging, stalled, or clean
    - If blocking findings exist, remind: "You must resolve these before finalizing. Use `/review-by-opp:fix`."
 
-10. **Check convergence:**
+11. **Check convergence:**
    - If no blocking findings remain: "Ready to finalize. Run `/review-by-opp:finalize`."
    - If max rounds reached: warn the user
    - If stalled (same blocking findings for N rounds): warn the user
