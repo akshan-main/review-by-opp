@@ -29,7 +29,7 @@ You are running a Codex review round. Codex is the auditor - it reviews, you do 
      - **Tech stack**: languages, frameworks, key dependencies
      - **What changed this session**: summary of changes made since session started (from git log/diff)
      - **Previous findings** (if round > 1): list all findings from prior rounds with their current status (open/fixed/etc), so Codex knows what was already flagged and can verify fixes
-     - **Review focus**: any user-specified focus areas from arguments
+     - **User notes**: any message the user passed as arguments — could be concerns, questions, hints, or areas to investigate
    - Keep it concise — this is context, not a full dump. Aim for under 200 lines.
 
 5. **Build the audit prompt:**
@@ -38,7 +38,10 @@ You are running a Codex review round. Codex is the auditor - it reviews, you do 
    - For `diff` scope: include the git diff output in the prompt
    - For `changed-files` scope: include the full file contents of changed files
    - For `full-repo` scope: instruct Codex to read and review all source files in the repository
-   - If the user provided arguments (e.g. `/review-by-opp:review focus on auth and SQL injection`), append them as additional review focus areas
+   - If the user provided arguments, include them verbatim as a user note to Codex. This can be anything — concerns ("I think the auth flow might be wrong"), questions ("is this SQL query safe?"), hints ("check the retry logic in worker.ts"), or general direction. Examples:
+     - `/review-by-opp:review I think the error handling in api.ts might be wrong`
+     - `/review-by-opp:review check if the rate limiter actually works under concurrency`
+     - `/review-by-opp:review is it ok to use eval here or is there a safer way`
    - Always instruct Codex to output findings in the format: `FINDING: {"title":"...","severity":"...","category":"...","file":"...","line":...,"description":"...","suggested_fix":"..."}`
 
 6. **Run Codex review:**
