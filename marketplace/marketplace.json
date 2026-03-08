@@ -10,10 +10,7 @@
   "plugins": [
     {
       "name": "review-by-opp",
-      "source": {
-        "source": "github",
-        "repo": "akshan-main/review-by-opp"
-      },
+      "source": ".",
       "description": "A Claude Code plugin that uses your signed-in Codex account as an independent reviewer and keeps a strict issue ledger, so Claude cannot claim 'all fixed' until every review finding is actually closed.",
       "version": "1.0.0",
       "author": {
