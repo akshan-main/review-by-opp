@@ -1,0 +1,26 @@
+{
+  "reviewLedger": {
+    "maxRounds": 4,
+    "reviewScope": "diff",
+    "blockingSeverities": ["critical", "high", "medium"],
+    "rerunChecks": true,
+    "allowedUnresolvedCategories": [],
+    "stalledThreshold": 2,
+    "debug": false
+  },
+  "codex": {
+    "role": "auditor_only",
+    "modelStrategy": "best_available",
+    "model": "",
+    "reasoningEffort": "",
+    "deepAuditReasoningEffort": "xhigh",
+    "auditMode": "standard",
+    "commandOverride": "",
+    "auditPromptPreset": "default"
+  },
+  "claude": {
+    "role": "builder",
+    "modelControl": "user_managed",
+    "effortControl": "user_managed"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "review-by-opp",
+  "version": "1.0.0",
+  "description": "A Claude Code plugin that uses your signed-in Codex account as an independent reviewer and keeps a strict issue ledger, so Claude cannot claim 'all fixed' until every review finding is actually closed.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test dist/tests/**/*.test.js",
+    "test:src": "tsx --test src/tests/**/*.test.ts",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "claude-code",
+    "codex",
+    "code-review",
+    "plugin",
+    "review-by-opp",
+    "ai-review"
+  ],
+  "author": "review-by-opp contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "files": [
+    "dist/",
+    ".claude-plugin/",
+    "skills/",
+    "hooks/",
+    "scripts/",
+    "README.md",
+    "LICENSE"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "review-by-opp",
+  "owner": {
+    "name": "review-by-opp contributors"
+  },
+  "metadata": {
+    "description": "Strict issue-ledger and exit-gate for Claude + Codex code review",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "review-by-opp",
+      "source": {
+        "source": "github",
+        "repo": "akshan-main/review-by-opp"
+      },
+      "description": "A Claude Code plugin that uses your signed-in Codex account as an independent reviewer and keeps a strict issue ledger, so Claude cannot claim 'all fixed' until every review finding is actually closed.",
+      "version": "1.0.0",
+      "author": {
+        "name": "review-by-opp contributors"
+      },
+      "keywords": ["code-review", "codex", "review-loop", "issue-ledger", "stop-gate"],
+      "license": "MIT"
+    }
+  ]
+}

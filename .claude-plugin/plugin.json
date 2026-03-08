@@ -1,0 +1,21 @@
+{
+  "name": "review-by-opp",
+  "version": "1.0.0",
+  "description": "Strict issue-ledger and exit-gate system that prevents false completion claims. Uses your signed-in Codex as an independent reviewer - Claude cannot claim 'all fixed' until every finding is actually closed.",
+  "author": {
+    "name": "review-by-opp contributors",
+    "url": "https://github.com/review-by-opp/review-by-opp"
+  },
+  "repository": "https://github.com/review-by-opp/review-by-opp",
+  "license": "MIT",
+  "keywords": [
+    "code-review",
+    "codex",
+    "review-loop",
+    "issue-ledger",
+    "stop-gate",
+    "quality-gate"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
+}
