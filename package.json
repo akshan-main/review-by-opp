@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "node --test dist/tests/**/*.test.js",
+    "test": "node --test $(find dist/tests -name '*.test.js')",
     "test:src": "tsx --test src/tests/**/*.test.ts",
     "lint": "tsc --noEmit",
     "clean": "rm -rf dist",
