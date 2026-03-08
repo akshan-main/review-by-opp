@@ -43,12 +43,14 @@ flowchart TD
 ### Install
 
 ```bash
-# Option 1: Install from marketplace
-/plugin marketplace add review-by-opp/review-by-opp
-/plugin install review-by-opp@review-by-opp
+# Sign into Codex first (one-time, uses your ChatGPT account, no API key needed)
+npx @openai/codex login
 
-# Option 2: Install from local clone
-git clone https://github.com/review-by-opp/review-by-opp.git
+# Option 1: Add plugin in Claude Code chat
+/plugins  # then "Add from local path" or "Add marketplace"
+
+# Option 2: Clone and load
+git clone https://github.com/akshan-main/review-by-opp.git
 claude --plugin-dir ./review-by-opp
 
 # Option 3: Development / test
@@ -59,39 +61,42 @@ claude --plugin-dir .
 
 ### Usage
 
+All commands are typed in Claude Code's chat (VS Code panel or CLI). No API keys required for either agent.
+
 ```
 /review-by-opp:start       Start a guarded implementation + review session
 /review-by-opp:review      Run Codex review against current diff
-/review-by-opp:fix         Address findings from the ledger
+/review-by-opp:fix         Address findings one by one
 /review-by-opp:status      Show round count, findings, and exit gate status
 /review-by-opp:resume      Resume an existing session
 /review-by-opp:finalize    Close the session (blocked if findings remain)
+/review-by-opp:help        Learn about the plugin and available commands
 ```
 
 ### Demo walkthrough
 
-```bash
-# 1. Start working on your feature
-claude
+In Claude Code chat (VS Code or CLI):
+
+```
 > /review-by-opp:start
 
-# 2. Write your code as usual with Claude
+# Write your code as usual with Claude
 > Implement the user authentication module
 
-# 3. When ready, run the Codex review
+# When ready, run the Codex review
 > /review-by-opp:review
 
-# 4. Claude receives structured findings - fix them
+# Claude receives structured findings - fix them
 > /review-by-opp:fix
 
-# 5. Check progress
+# Check progress
 > /review-by-opp:status
 
-# 6. Repeat review/fix until clean
+# Repeat review/fix until clean
 > /review-by-opp:review
 > /review-by-opp:fix
 
-# 7. Finalize when all findings are resolved
+# Finalize when all findings are resolved
 > /review-by-opp:finalize
 ```
 
