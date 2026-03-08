@@ -18,15 +18,15 @@ This is not a generic AI review loop. This is a strict review and exit-gate syst
 
 ```mermaid
 flowchart TD
-  A[Claude builds changes] --> B[/review-by-opp:review]
-  B --> C[Codex exec --sandbox read-only]
-  C --> D[Findings normalized into reviews/current.json]
-  D --> E{Blocking findings open?}
-  E -- Yes --> F[/review-by-opp:fix]
+  A["Claude builds changes"] --> B["Run review"]
+  B --> C["Codex exec --sandbox read-only"]
+  C --> D["Findings saved to reviews/current.json"]
+  D --> E{"Blocking findings open?"}
+  E -- Yes --> F["Fix findings"]
   F --> B
-  E -- No --> G[/review-by-opp:finalize]
-  G --> H[Stop gate checks ledger state]
-  H --> I[Final verdict]
+  E -- No --> G["Finalize"]
+  G --> H["Stop gate checks session state"]
+  H --> I["Final verdict"]
 ```
 
 **Key principle:** Claude builds. Codex audits. The plugin prevents fake completion.
