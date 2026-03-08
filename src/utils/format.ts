@@ -12,7 +12,7 @@ import type { CheckResult as CheckRes } from "./checks.js";
 
 export function formatStatus(status: StatusInfo): string {
   const lines: string[] = [
-    `## Review Ledger Status`,
+    `## review-by-opp Status`,
     ``,
     `| Field | Value |`,
     `|-------|-------|`,

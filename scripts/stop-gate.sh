@@ -47,7 +47,7 @@ RESULT=$(node -e "
     if (invalidStatus.length > 0) {
       console.log('BLOCKED');
       console.error('');
-      console.error('=== REVIEW-LEDGER STOP GATE ===');
+      console.error('=== REVIEW-BY-OPP STOP GATE ===');
       console.error('');
       console.error('Cannot complete: ' + invalidStatus.length + ' finding(s) have missing/invalid resolution state.');
       console.error('');
@@ -60,7 +60,7 @@ RESULT=$(node -e "
     } else if (blocking.length > 0) {
       console.log('BLOCKED');
       console.error('');
-      console.error('=== REVIEW-LEDGER STOP GATE ===');
+      console.error('=== REVIEW-BY-OPP STOP GATE ===');
       console.error('');
       console.error('Cannot complete: ' + blocking.length + ' blocking finding(s) remain unresolved.');
       console.error('');
@@ -76,7 +76,7 @@ RESULT=$(node -e "
       if (noNote.length > 0) {
         console.log('BLOCKED');
         console.error('');
-        console.error('=== REVIEW-LEDGER STOP GATE ===');
+        console.error('=== REVIEW-BY-OPP STOP GATE ===');
         console.error('');
         console.error(noNote.length + ' finding(s) marked fixed without resolution notes:');
         noNote.forEach(f => {
