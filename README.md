@@ -10,9 +10,8 @@ I use Claude Code for heavy coding and Codex CLI to review the output. In my exp
 
 But the workflow was painful. Copy-paste findings from Codex into Claude. Watch Claude fix some of them and claim "all done" when half are still open. Manually track what was actually resolved. Repeat. I got fed up.
 
-So I built review-by-opp. It automates the Claude + Codex review loop and enforces **item-by-item closure tracking** with a **stop gate** that blocks completion while findings remain unresolved. Claude builds. Codex audits. The plugin prevents fake completion.
+So I built review-by-opp. It automates the Claude + Codex review loop and enforces **item-by-item closure tracking** with a **stop gate** that blocks completion while findings remain unresolved. Codex audits. The plugin prevents fake completion.
 
-This is not a generic AI review loop. This is a strict review and exit-gate system.
 
 ## How it works
 
