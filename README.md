@@ -225,7 +225,3 @@ All files are JSON, easy to inspect and diff.
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## License
-
-MIT - see [LICENSE](LICENSE).
